@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['H:\\Работа\\headhunting\\createCV'],
+             pathex=['H:\\Работа\\headhunting\\headhunter_software\\createCV'],
              binaries=[],
              datas=[],
              hiddenimports=[],

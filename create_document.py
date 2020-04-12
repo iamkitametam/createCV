@@ -39,6 +39,8 @@ def create_CV_using_my_word_template(FIO, birth_date, location, languages, salar
 
         context.update({'ДАТА_РАБОТЫ_' + str(i+1): j["date"].replace("настоящее время","н.в.")})
         context.update({'НАЗВАНИЕ_КОМПАНИИ_' + str(i+1): j["name"]})
+        context.update({'МЕСТО_РАБОТЫ_' + str(i+1): j["location"]})
+        context.update({'САЙТ_РАБОТЫ_' + str(i+1): j["url"]})
         context.update({'НАЗВАНИЕ_ДОЛЖНОСТИ_' + str(i+1): j["position"]})
         context.update({'ПУНКТ_ОПИСАНИЯ_ДОЛЖНОСТИ_' + str(i+1): Listing(job_description)})
         # 'НАЗВАНИЕ_КОМПАНИИ': job["name"],
@@ -53,7 +55,7 @@ def create_CV_using_my_word_template(FIO, birth_date, location, languages, salar
         e = educations_return[i]
         context.update({'ДАТА_ОБРАЗОВАНИЯ_' + str(i+1): e["date"].replace("настоящее время","н.в.")})
         context.update({'НАЗВАНИЕ_ВУЗА_' + str(i+1): e["name"]})
-        context.update({'НАЗВАНИЕ_ФАКУЛЬТЕТА_' + str(i+1): e["facultee"]})
+        # context.update({'НАЗВАНИЕ_ФАКУЛЬТЕТА_' + str(i+1): e["facultee"]})
         # context.update({'ОПИСАНИЕ_ОБРАЗОВАНИЯ_' + str(i+1): Listing(education_description)})
         context.update({'ОПИСАНИЕ_ОБРАЗОВАНИЯ_' + str(i+1): educations_return[i]["description"]})
 
