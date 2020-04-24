@@ -1,9 +1,21 @@
 from docxtpl import *
+import json
 
-def create_CV_using_my_word_template(FIO, birth_date, location, languages, salary, jobs_return, educations_return, \
-                                     additional_educations_return):
+# def create_CV_using_my_word_template(FIO, birth_date, location, languages, salary, jobs_return, educations_return, \
+#                                      additional_educations_return):
 
-    # doc = DocxTemplate("h://Работа/headhunting/createCV/my_word_template.docx")
+def create_CV_using_my_word_template(person):
+
+    FIO = person["FIO"]
+    birth_date = person["birth_date"]
+    location = person["location"]
+    languages = person["languages"]
+    salary = person["salary"]
+    jobs_return = person["jobs"]
+    educations_return = person["educations"]
+    additional_educations_return = person["additional_educations"]
+    photo_file_name = person["photo_file_name"]
+
     doc = DocxTemplate("my_word_template.docx")
     context = { 'ФАМИЛИЯ_ИМЯ_ОТЧЕСТВО' : FIO.upper(),
                 'ДАТА_РОЖДЕНИЯ' : birth_date,
@@ -75,7 +87,7 @@ def create_CV_using_my_word_template(FIO, birth_date, location, languages, salar
 
     # PHOTO
     try:
-        doc.replace_pic('default_userpic.jpg',"imgs/" + FIO.upper() + ".jpg")
+        doc.replace_pic('default_userpic.jpg',photo_file_name)
     except:
         print("no photo")
 
